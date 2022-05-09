@@ -10,13 +10,16 @@
     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
 
         <Label Text="Haku"
-               FontSize="20"
+               FontSize="30"
                FontAttributes="Bold"
                HorizontalOptions="Center" />
 
-        <!-- Hakukenttä -->
-        <SearchBar Placeholder="Hae etu- tai sukunimellä"
-                   SearchButtonPressed="OnSearchBarButtonPressed" />
+        <!--<StackLayout Orientation="Horizontal"  Margin="1, 1">-->
+            <!-- Hakukenttä -->
+            <SearchBar Placeholder="Hae nimellä tai nimen osalla..." SearchButtonPressed="OnSearchBarButtonPressed" CancelButtonColor="Red"/>
+           <Button Text="Näytä kaikki"  x:Name="Reset" Pressed="OnResetPressed" Margin="20, 0"/>
+        <!--</StackLayout>-->
+
 
         <!-- Latausilmoitus -->
         <Label x:Name="emp_lataus" StyleClass="LatausLabel" />

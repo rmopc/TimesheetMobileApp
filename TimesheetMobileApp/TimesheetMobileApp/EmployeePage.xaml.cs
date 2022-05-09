@@ -84,9 +84,16 @@ namespace TimesheetMobileApp
             // Työntekijälistaukseen valitaan nyt vain ne joiden etu- tai sukunimeen sisältyy annettu hakutermi
             // "var dataa" on tiedoston päätasolla alustettu muuttuja, johon sijoitettiin alussa koko lista työntekijöistä.
             // Nyt siihen sijoitetaan vain hakuehdon täyttävät työntekijät
-            employeeList.ItemsSource = dataa.Where(x => x.LastName.ToLower().Contains(searchText.ToLower())
+             employeeList.ItemsSource = dataa.Where(x => x.LastName.ToLower().Contains(searchText.ToLower())
             || x.FirstName.ToLower().Contains(searchText.ToLower()));
 
+            searchBar.Text = "";
+
+        }
+
+        private void OnResetPressed(object sender, EventArgs args)
+        {   
+            employeeList.ItemsSource = dataa;            
         }
     }    
 }

@@ -62,6 +62,8 @@
             </ListView.ItemTemplate>
         </ListView>
 
+        <Button x:Name="navbutton" Text="Työtehtäviin" Clicked="navbutton_Clicked" ></Button>
+
     </StackLayout>
 
 </ContentPage>

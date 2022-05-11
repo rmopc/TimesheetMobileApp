@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TimesheetMobileApp.WorkAssignmentPage">
+    <ContentPage.Content>
+        <StackLayout >
+            <Label Text="Workassignment-page " FontSize="25" Padding="5, 60"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Label Text="Valitse työtehtävä:"   
+                   VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"/>
+            <!-- Latausilmoitus -->
+            <Label x:Name="work_lataus" StyleClass="LatausLabel" />
+
+            <!-- Henkilölistaus -->
+            <ListView x:Name="assignmentList" SelectionMode="Single" Margin="20, 0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <ContentView Padding="5">
+                                <Frame BorderColor="Silver" Padding="3">
+
+                                    <StackLayout BackgroundColor="AliceBlue" Orientation="Horizontal" Padding="5, 3">
+
+                                        <Label Text="{Binding IdWorkAssignment}"
+                                             HorizontalOptions="Start"
+                                              WidthRequest="10"
+                                              HeightRequest="20"
+                                              VerticalOptions="StartAndExpand" 
+                                               />
+
+
+                                        <Label Text="{Binding Title}"
+                                              HorizontalOptions="Start"
+                                               TextColor="Blue"
+                                               FontSize="15"
+                                               VerticalOptions="StartAndExpand" 
+                                               />
+
+
+
+                                        <Label Text="{Binding Deadline}"
+                                               HorizontalOptions="EndAndExpand"
+                                                TextColor="Purple"
+                                                 FontSize="10"                                            
+                                               
+                                                 />
+                                        
+
+                                    </StackLayout>
+                                </Frame>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+                <Button  x:Name="Start"  Text="Start" Margin="10, 5" Clicked="Start_Clicked"></Button>
+                <Button  x:Name="Stop" Text="Stop" Margin="10, 5" Clicked="Stop_Clicked"></Button>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

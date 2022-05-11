@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,7 +24,7 @@ namespace TimesheetMobileApp
             //Kutsutaan alempana määriteltyä funktiota kun ohjelma käynnistyy
             LoadDataFromRestAPI();
 
-            async void LoadDataFromRestAPI()                
+            async void LoadDataFromRestAPI()
             {
 
                 emp_lataus.Text = "Ladataan työntekijöitä...";
@@ -84,16 +85,32 @@ namespace TimesheetMobileApp
             // Työntekijälistaukseen valitaan nyt vain ne joiden etu- tai sukunimeen sisältyy annettu hakutermi
             // "var dataa" on tiedoston päätasolla alustettu muuttuja, johon sijoitettiin alussa koko lista työntekijöistä.
             // Nyt siihen sijoitetaan vain hakuehdon täyttävät työntekijät
-             employeeList.ItemsSource = dataa.Where(x => x.LastName.ToLower().Contains(searchText.ToLower())
-            || x.FirstName.ToLower().Contains(searchText.ToLower()));
+            employeeList.ItemsSource = dataa.Where(x => x.LastName.ToLower().Contains(searchText.ToLower())
+           || x.FirstName.ToLower().Contains(searchText.ToLower()));
 
             searchBar.Text = "";
 
         }
 
         private void OnResetPressed(object sender, EventArgs args)
-        {   
-            employeeList.ItemsSource = dataa;            
+        {
+            employeeList.ItemsSource = dataa;
+        }
+
+        async void navbutton_Clicked(object sender, EventArgs e)
+        {
+            Employee emp = (Employee)employeeList.SelectedItem;
+
+            if (emp == null)
+            {
+                await DisplayAlert("Valinta puuttuu", "Valitse työntekijä.", "OK"); // (otsikko, teksti, kuittausnapin teksti)
+                return;
+            }
+            else
+            {
+                int id = emp.IdEmployee;
+                await Navigation.PushAsync(new WorkAssignmentPage(id)); // Navigoidaan uudelle sivulle
+            }
         }
     }    
 }

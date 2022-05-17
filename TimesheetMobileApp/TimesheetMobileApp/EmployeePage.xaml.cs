@@ -103,7 +103,7 @@ namespace TimesheetMobileApp
 
             if (emp == null)
             {
-                await DisplayAlert("Valinta puuttuu", "Valitse työntekijä.", "OK"); // (otsikko, teksti, kuittausnapin teksti)
+                await DisplayAlert("Valinta puuttuu!", "Valitse työntekijä ennen jatkamista", "OK"); // (otsikko, teksti, kuittausnapin teksti)
                 return;
             }
             else

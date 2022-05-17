@@ -58,6 +58,11 @@
                 </ListView.ItemTemplate>
             </ListView>
 
+            <Label x:Name="lat_label"></Label>
+            
+            <Label x:Name="lon_label"></Label>
+
+
             <StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
                 <Button  x:Name="Start"  Text="Start" Margin="10, 5" Clicked="Start_Clicked"></Button>
                 <Button  x:Name="Stop" Text="Stop" Margin="10, 5" Clicked="Stop_Clicked"></Button>

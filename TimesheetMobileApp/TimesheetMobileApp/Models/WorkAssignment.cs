@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TimesheetBackend.Models
 {
-    public  class WorkAssignment
+    public class WorkAssignment
     {
 
         public int IdWorkAssignment { get; set; }
